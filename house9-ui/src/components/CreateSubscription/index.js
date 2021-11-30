@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import { createSubscriptions } from "../../services/subscriptions";
 import DropDownVouchers from "../DropDownVouchers";
+import ErrorMessage from '../ErrorMessage';
 import {
   FormControl,
   FormLabel,
@@ -20,12 +21,28 @@ const CreateSubscriptions = ({ handleClose }) => {
   const [voucherId, setVoucherId] = useState("");
   const [mobile, setMobile] = useState("");
   const [vouchers, setVouchers] = useState([]);
+  const [error, setError] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleSave = async (e) => {
     e.preventDefault();
+    setIsLoading(true);
     const payload = { email, name, mobile, voucherId };
-    console.log("payload", payload);
-    await createSubscriptions(payload);
+    try {
+        await createSubscriptions(payload);
+        setIsLoading(false);
+
+    } catch (error) {
+        setError('Invalid username or password');
+      setIsLoading(false);
+      setEmail('');
+      setName('');
+      setVoucherId('');
+      setMobile('');
+      
+    }
+
+   
     handleClose();
     history.push("/");
     // onSubmit(email, name, mobile);
@@ -51,6 +68,7 @@ const CreateSubscriptions = ({ handleClose }) => {
 
   return (
     <form onSubmit={handleSave}>
+     {error && <ErrorMessage message={error} />}
       <FormControl id="email" isRequired>
         <FormHelperText>We'll never share your email.</FormHelperText>
         <FormLabel>Email address</FormLabel>
@@ -88,6 +106,7 @@ const CreateSubscriptions = ({ handleClose }) => {
           placeholder="Select option"
           name="voucherId"
           onChange={(event) => setVoucherId(event.target.value)}
+          variant='filled'
         >
           {vouchers.map((option) => {
             return (
