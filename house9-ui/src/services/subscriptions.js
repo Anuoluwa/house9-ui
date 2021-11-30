@@ -1,6 +1,7 @@
-import api from '../utils/api';
+import api from "../utils/api";
 
-export const createSubscriptions = async (id, payload) => {
-    const response = await api.post(`users/${id}/subscriptions`, payload);
-    return response.data;
+export const createSubscriptions = async (payload) => {
+  const response = await api.post(`users/subscriptions`, payload);
+  console.log("response", response);
+  return response.data;
 };

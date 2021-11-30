@@ -1,13 +1,7 @@
-import React from 'react';
-
+import React from "react";
 
 function MainNav() {
-    return (
-        <div>
-            Nav
-            
-        </div>
-    );
+  return <div>Nav</div>;
 }
 
 export default MainNav;
