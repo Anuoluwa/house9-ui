@@ -1,23 +1,49 @@
-import React from 'react';
+import React, { useState } from 'react';
+import PriceWrapper from '../PriceWrapper';
+import { FaCheckCircle } from 'react-icons/fa';
+import CreateSubscriptions from '../CreateSubscription';
 import {
-    Box,
-    Stack,
-    HStack,
-    Heading,
-    Text,
-    VStack,
-    useColorModeValue,
-    List,
-    ListItem,
-    ListIcon,
-    Button,
-  } from '@chakra-ui/react';
-  import PriceWrapper from '../PriceWrapper';
-  import { FaCheckCircle } from 'react-icons/fa';
+  Box,
+  Stack,
+  HStack,
+  Heading,
+  Text,
+  VStack,
+  useColorModeValue,
+  List,
+  ListItem,
+  ListIcon,
+  Button,
+  Modal,
+  ModalOverlay,
+  ModalContent,
+  ModalHeader,
+  ModalFooter,
+  ModalBody,
+  ModalCloseButton,
+  useDisclosure
+} from '@chakra-ui/react';
 
 
 const ThreeTierPricing = ({children}) => {
+
+  const { isOpen, onOpen, onClose } = useDisclosure()
+  
+    const initialRef = React.useRef()
+    const finalRef = React.useRef()
+
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+
+  const onLoginFormSubmit = (e) => {
+    e.preventDefault();
+    handleClose();
+  };
+
     return (
+      <>
         <Box py={12}>
           <VStack spacing={2} textAlign="center">
             <Heading as="h1" fontSize="4xl">
@@ -74,7 +100,7 @@ const ThreeTierPricing = ({children}) => {
                   </ListItem>
                 </List>
                 <Box w="80%" pt={7}>
-                  <Button w="full" colorScheme="red" variant="outline">
+                  <Button w="full" colorScheme="red" variant="outline" onClick={onOpen}>
                     Get Coupon
                   </Button>
                 </Box>
@@ -122,7 +148,7 @@ const ThreeTierPricing = ({children}) => {
                   </ListItem>
                   </List>
                   <Box w="80%" pt={7}>
-                    <Button w="full" colorScheme="red" variant="outline">
+                    <Button w="full" colorScheme="red" variant="outline" onClick={onOpen}>
                       Get Coupon
                     </Button>
                   </Box>
@@ -169,7 +195,7 @@ const ThreeTierPricing = ({children}) => {
                   </ListItem>
                 </List>
                 <Box w="80%" pt={7}>
-                  <Button w="full" colorScheme="red" variant="outline">
+                  <Button w="full" colorScheme="red" variant="outline" onClick={onOpen}>
                     Get Coupon
                   </Button>
                 </Box>
@@ -177,6 +203,29 @@ const ThreeTierPricing = ({children}) => {
             </PriceWrapper>
           </Stack>
         </Box>
+        <Modal
+        initialFocusRef={initialRef}
+        finalFocusRef={finalRef}
+        isOpen={isOpen}
+        onClose={onClose}
+      >
+        <ModalOverlay />
+        <ModalContent>
+          <ModalHeader>You are one step away to get your code</ModalHeader>
+          <ModalCloseButton />
+          <ModalBody pb={6}>
+            <CreateSubscriptions onSubmit={onLoginFormSubmit} />
+          </ModalBody>
+
+          <ModalFooter>
+            <Button colorScheme='green' mr={3}>
+              Submit
+            </Button>
+            <Button onClick={onClose}>Cancel</Button>
+          </ModalFooter>
+        </ModalContent>
+      </Modal>
+        </>
       );
     
 }
