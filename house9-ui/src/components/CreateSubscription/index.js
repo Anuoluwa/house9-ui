@@ -73,7 +73,7 @@ const CreateSubscriptions = ({ handleClose }) => {
   }, []);
 
   return (
-    <form onSubmit={handleSave}>
+    <form onSubmit={handleSave} my={4}>
       {error && <ErrorMessage message={error} />}
       <FormControl id="email" isRequired>
         <FormHelperText>We'll never share your email.</FormHelperText>
@@ -86,7 +86,7 @@ const CreateSubscriptions = ({ handleClose }) => {
         />
       </FormControl>
 
-      <FormControl id="name" isRequired>
+      <FormControl id="name" isRequired mt={6}>
         <FormLabel>Full Name</FormLabel>
         <Input
           type="name"
@@ -96,7 +96,7 @@ const CreateSubscriptions = ({ handleClose }) => {
         />
       </FormControl>
 
-      <FormControl id="mobile" isRequired>
+      <FormControl id="mobile" isRequired mt={6}>
         <FormLabel>Mobile Number</FormLabel>
         <Input
           type="mobile"
@@ -106,7 +106,7 @@ const CreateSubscriptions = ({ handleClose }) => {
         />
       </FormControl>
 
-      <FormControl id="dropdown" isRequired>
+      <FormControl id="dropdown" isRequired mt={6}>
         <FormLabel>Select voucher</FormLabel>
         <Select
           placeholder="Select option"
@@ -123,7 +123,7 @@ const CreateSubscriptions = ({ handleClose }) => {
           })}
         </Select>
       </FormControl>
-      <Button colorScheme="green" mr={3} type="submit" width="full" mt={4}>
+      <Button colorScheme="green" mr={3} type="submit" width="full" mt={6}>
         {isLoading ? (
           <CircularProgress isIndeterminate size="24px" color="teal" />
         ) : (
