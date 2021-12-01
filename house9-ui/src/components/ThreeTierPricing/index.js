@@ -42,8 +42,10 @@ const ThreeTierPricing = () => {
           <Heading as="h1" fontSize="4xl">
             Plans that fit your need
           </Heading>
+          <Text></Text>
           <Text fontSize="lg" color={"gray.500"}>
-            No credit card needed. Cancel at anytime.
+            Use our Euphoria Gold vouchers in any outlet. <br />{" "}
+            <em>No debit card needed.</em>
           </Text>
         </VStack>
         <Stack
@@ -54,82 +56,52 @@ const ThreeTierPricing = () => {
           py={10}
         >
           <PriceWrapper>
-            <Box py={4} px={12}>
-              <Text fontWeight="400" fontSize="2xl">
-                Silver
-              </Text>
-              <HStack justifyContent="center">
-                <Text fontSize="3xl" fontWeight="600">
-                  <span>&#8358;</span>
-                </Text>
-                <Text fontSize="5xl" fontWeight="600">
-                  100,
-                </Text>
-                <Text fontSize="5xl" fontWeight="600">
-                  000
-                </Text>
-              </HStack>
-            </Box>
-            <VStack
-              bg={useColorModeValue("gray.50", "gray.700")}
-              py={4}
-              borderBottomRadius={"xl"}
-            >
-              <List spacing={3} textAlign="start" px={12}>
-                <ListItem>
-                  <ListIcon as={FaCheckCircle} color="green.500" />
-                  10% discount for the first 5 hotel bookings.
-                </ListItem>
-                <ListItem>
-                  <ListIcon as={FaCheckCircle} color="green.500" />
-                  Free membership access to use the swimming pool.
-                </ListItem>
-                <ListItem>
-                  <ListIcon as={FaCheckCircle} color="green.500" />
-                  Exclusive invite to House9 events.
-                </ListItem>
-                <ListItem>
-                  <ListIcon as={FaCheckCircle} color="red.500" />
-                  Valid for 30 Days
-                </ListItem>
-              </List>
-              <Box w="80%" pt={7}>
-                <Button
-                  w="full"
-                  colorScheme="red"
-                  variant="outline"
-                  onClick={onOpen}
-                >
-                  Get Coupon
-                </Button>
-              </Box>
-            </VStack>
-          </PriceWrapper>
-
-          <PriceWrapper>
             <Box position="relative">
+              <Box
+                position="absolute"
+                top="-16px"
+                left="50%"
+                style={{ transform: "translate(-50%)" }}
+              >
+                <Text
+                  textTransform=""
+                  bg={useColorModeValue("yellow.300", "yellow.700")}
+                  px={3}
+                  py={1}
+                  color={useColorModeValue("gray.900", "gray.300")}
+                  fontSize="xs"
+                  fontWeight="600"
+                  rounded="xl"
+                >
+                  10% Discount
+                </Text>
+              </Box>
               <Box py={4} px={12}>
-                <Text fontWeight="400" fontSize="2xl">
-                  Gold
+                <Text fontWeight="500" fontSize="sm" color="red.500">
+                  Valids for 30 Days
                 </Text>
                 <HStack justifyContent="center">
-                  <Text fontSize="3xl" fontWeight="700">
+                  <Text fontSize="3xl" fontWeight="600">
                     <span>&#8358;</span>
                   </Text>
-                  <Text fontSize="5xl" fontWeight="600">
-                    500,
+                  <Text fontSize="4xl" fontWeight="900">
+                    90K
                   </Text>
-                  <Text fontSize="5xl" fontWeight="600">
-                    000
+                  <Text fontSize="3xl" color="gray.500">
+                    /100K
                   </Text>
                 </HStack>
               </Box>
               <VStack
                 bg={useColorModeValue("gray.50", "gray.700")}
-                py={4}
+                py={6}
                 borderBottomRadius={"xl"}
               >
-                <List spacing={3} textAlign="start" px={12}>
+                <List spacing={3} textAlign="start" px={8}>
+                  <ListItem>
+                    <ListIcon as={FaCheckCircle} color="yellow.500" />A voucher
+                    of 100,000 naira for 90,000 naira.
+                  </ListItem>
                   <ListItem>
                     <ListIcon as={FaCheckCircle} color="green.500" />
                     10% discount for the first 5 hotel bookings.
@@ -142,9 +114,80 @@ const ThreeTierPricing = () => {
                     <ListIcon as={FaCheckCircle} color="green.500" />
                     Exclusive invite to House9 events.
                   </ListItem>
+                </List>
+                <Box w="80%" pt={7}>
+                  <Button
+                    w="full"
+                    colorScheme="red"
+                    variant="outline"
+                    fontSize="sm"
+                    onClick={onOpen}
+                  >
+                    Select Your Preferred Coupon
+                  </Button>
+                </Box>
+              </VStack>
+            </Box>
+          </PriceWrapper>
+
+          <PriceWrapper>
+            <Box position="relative">
+              <Box
+                position="absolute"
+                top="-16px"
+                left="50%"
+                style={{ transform: "translate(-50%)" }}
+              >
+                <Text
+                  textTransform=""
+                  bg={useColorModeValue("yellow.300", "yellow.700")}
+                  px={3}
+                  py={1}
+                  color={useColorModeValue("gray.900", "gray.300")}
+                  fontSize="xs"
+                  fontWeight="600"
+                  rounded="xl"
+                >
+                  15% Discount
+                </Text>
+              </Box>
+              <Box py={4} px={12}>
+                <Text fontWeight="500" fontSize="sm" color="red.500">
+                  Valids for 60 Days
+                </Text>
+                <HStack justifyContent="center">
+                  <Text fontSize="3xl" fontWeight="600">
+                    <span>&#8358;</span>
+                  </Text>
+                  <Text fontSize="4xl" fontWeight="900">
+                    425K
+                  </Text>
+                  <Text fontSize="3xl" color="gray.500">
+                    /500K
+                  </Text>
+                </HStack>
+              </Box>
+              <VStack
+                bg={useColorModeValue("gray.50", "gray.700")}
+                py={4}
+                borderBottomRadius={"xl"}
+              >
+                <List spacing={3} textAlign="start" px={10}>
                   <ListItem>
-                    <ListIcon as={FaCheckCircle} color="red.500" />
-                    Valid for 60 Days
+                    <ListIcon as={FaCheckCircle} color="yellow.500" />A voucher
+                    of 500,000 naira for 425,000 naira
+                  </ListItem>
+                  <ListItem>
+                    <ListIcon as={FaCheckCircle} color="green.500" />
+                    10% discount for the first 5 hotel bookings.
+                  </ListItem>
+                  <ListItem>
+                    <ListIcon as={FaCheckCircle} color="green.500" />
+                    Free membership access to use the swimming pool.
+                  </ListItem>
+                  <ListItem>
+                    <ListIcon as={FaCheckCircle} color="green.500" />
+                    Exclusive invite to House9 events.
                   </ListItem>
                 </List>
                 <Box w="80%" pt={7}>
@@ -152,65 +195,88 @@ const ThreeTierPricing = () => {
                     w="full"
                     colorScheme="red"
                     variant="outline"
+                    fontSize="sm"
                     onClick={onOpen}
                   >
-                    Get Coupon
+                    Select Your Preferred Coupon
                   </Button>
                 </Box>
               </VStack>
             </Box>
           </PriceWrapper>
           <PriceWrapper>
-            <Box py={4} px={12}>
-              <Text fontWeight="500" fontSize="2xl">
-                Platinum
-              </Text>
-              <HStack justifyContent="center">
-                <Text fontSize="3xl" fontWeight="600">
-                  <span>&#8358;</span>
-                </Text>
-                <Text fontSize="5xl" fontWeight="600">
-                  1,000
-                </Text>
-                <Text fontSize="5xl" fontWeight="600">
-                  ,000
-                </Text>
-              </HStack>
-            </Box>
-            <VStack
-              bg={useColorModeValue("gray.50", "gray.700")}
-              py={4}
-              borderBottomRadius={"xl"}
-            >
-              <List spacing={3} textAlign="start" px={12}>
-                <ListItem>
-                  <ListIcon as={FaCheckCircle} color="green.500" />
-                  10% discount for the first 5 hotel bookings.
-                </ListItem>
-                <ListItem>
-                  <ListIcon as={FaCheckCircle} color="green.500" />
-                  Free membership access to use the swimming pool.
-                </ListItem>
-                <ListItem>
-                  <ListIcon as={FaCheckCircle} color="green.500" />
-                  Exclusive invite to House9 events.
-                </ListItem>
-                <ListItem>
-                  <ListIcon as={FaCheckCircle} color="red.500" />
-                  Valids for 90 Days
-                </ListItem>
-              </List>
-              <Box w="80%" pt={7}>
-                <Button
-                  w="full"
-                  colorScheme="red"
-                  variant="outline"
-                  onClick={onOpen}
+            <Box position="relative">
+              <Box
+                position="absolute"
+                top="-16px"
+                left="50%"
+                style={{ transform: "translate(-50%)" }}
+              >
+                <Text
+                  // textTransform="uppercase"
+                  bg={useColorModeValue("yellow.300", "yellow.700")}
+                  px={3}
+                  py={1}
+                  color={useColorModeValue("gray.900", "gray.300")}
+                  fontSize="xs"
+                  fontWeight="600"
+                  rounded="xl"
                 >
-                  Get Coupon
-                </Button>
+                  20% Discount
+                </Text>
               </Box>
-            </VStack>
+              <Box py={4} px={12}>
+                <Text fontWeight="500" fontSize="sm" color="red.500">
+                  Valids for 90 Days
+                </Text>
+                <HStack justifyContent="center">
+                  <Text fontSize="3xl" fontWeight="600">
+                    <span>&#8358;</span>
+                  </Text>
+                  <Text fontSize="4xl" fontWeight="900">
+                    800K
+                  </Text>
+                  <Text fontSize="3xl" color="gray.500">
+                    /1M
+                  </Text>
+                </HStack>
+              </Box>
+              <VStack
+                bg={useColorModeValue("gray.50", "gray.700")}
+                py={4}
+                borderBottomRadius={"xl"}
+              >
+                <List spacing={3} textAlign="start" px={10}>
+                  <ListItem>
+                    <ListIcon as={FaCheckCircle} color="yellow.500" />A voucher
+                    of 1,000,000 naira for 800,000 naira
+                  </ListItem>
+                  <ListItem>
+                    <ListIcon as={FaCheckCircle} color="green.500" />
+                    10% discount for the first 5 hotel bookings.
+                  </ListItem>
+                  <ListItem>
+                    <ListIcon as={FaCheckCircle} color="green.500" />
+                    Free membership access to use the swimming pool.
+                  </ListItem>
+                  <ListItem>
+                    <ListIcon as={FaCheckCircle} color="green.500" />
+                    Exclusive invite to House9 events.
+                  </ListItem>
+                </List>
+                <Box w="80%" pt={7}>
+                  <Button
+                    w="full"
+                    colorScheme="red"
+                    variant="outline"
+                    fontSize="sm"
+                    onClick={onOpen}
+                  >
+                    Select Your Preferred Coupon
+                  </Button>
+                </Box>
+              </VStack>
+            </Box>
           </PriceWrapper>
         </Stack>
       </Box>

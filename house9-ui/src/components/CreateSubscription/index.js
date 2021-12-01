@@ -72,10 +72,6 @@ const CreateSubscriptions = ({ handleClose }) => {
     fetchVouchers();
   }, []);
 
-  // const handleSubmit = event => {
-  //     event.preventDefault();
-  //   };
-
   return (
     <form onSubmit={handleSave}>
       {error && <ErrorMessage message={error} />}

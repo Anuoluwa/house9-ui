@@ -1,15 +1,17 @@
-import { Container } from "@chakra-ui/react";
+import { Container, Box } from "@chakra-ui/react";
 import MainNav from "../components/MainNav";
 import ThreeTierPricing from "../components/ThreeTierPricing";
 import Footer from "../components/Footer";
 
 const Homepage = () => {
   return (
-    <Container>
+    <Box>
       <MainNav />
-      <ThreeTierPricing />
+      <Container>
+        <ThreeTierPricing />
+      </Container>
       <Footer />
-    </Container>
+    </Box>
   );
 };
 
